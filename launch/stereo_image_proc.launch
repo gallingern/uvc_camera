@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find uvc_camera)/launch/stereo_node.launch" />
+  
+  <node ns="stereo" pkg="stereo_image_proc" type="stereo_image_proc"
+      name="stereo_image_proc" output="screen">
+    <rosparam file="$(find uvc_camera)/config/disparity.yaml"/>
+    <param name="frame_id" type="string" value="left_camera" />
+  </node>
+</launch>
